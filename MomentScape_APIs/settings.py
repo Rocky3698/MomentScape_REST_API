@@ -32,7 +32,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_SAMESITE = 'Lax'
-
+CSRF_TRUSTED_ORIGINS = ['https://momentscapeapi.onrender.com']
 # CORS_ORIGIN_WHITELIST = (
 #     'localhost:3000',
 # )
