@@ -29,6 +29,7 @@ class UserManager(BaseUserManager):
 		user.is_staff = True
 		user.is_superuser = True
 		user.is_admin = True
+		user.is_active = True
 		user.save()
 		return user
 
@@ -41,6 +42,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 	phone=models.CharField(max_length=15,null=True,blank=True)
 	gender=models.CharField(max_length=10,choices=GENDER_TYPE)
 	dp=models.CharField(max_length=150,null=True,blank=True)
+	bio = models.TextField(null=True,blank=True)
 	followers = models.ManyToManyField('self', symmetrical=False, related_name='following', blank=True)
 	date_joined = models.DateTimeField(auto_now_add=True)
 	last_login = models.DateTimeField(auto_now_add=True)
@@ -48,7 +50,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 	modified_date = models.DateTimeField(auto_now_add=True)
 	is_admin = models.BooleanField(default=False)
 	is_staff = models.BooleanField(default=False)
-	is_active = models.BooleanField(default=True)
+	is_active = models.BooleanField(default=False)
 	is_superadmin = models.BooleanField(default=False)
 	
 	USERNAME_FIELD = 'email'

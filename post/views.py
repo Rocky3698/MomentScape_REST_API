@@ -36,8 +36,6 @@ class PublicPostViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
 
 class VideoPostsView(viewsets.ModelViewSet):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
     def get_queryset(self):
         return Post.objects.exclude(video_url__isnull=True).exclude(video_url='')
@@ -49,8 +47,11 @@ class CommentViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = super().get_queryset()
         post_id = self.request.query_params.get('post_id')
+        comment_id = self.request.query_params.get('comment_id')
         if post_id:
             queryset = queryset.filter(post__id=post_id)
+        if comment_id:
+            queryset = queryset.filter(id=comment_id)
         return queryset
 
 

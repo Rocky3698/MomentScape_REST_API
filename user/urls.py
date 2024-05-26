@@ -12,5 +12,7 @@ urlpatterns = [
     path('login/',views.UserLoginApiView.as_view(),name='login'),
     path('logout/',views.UserLogoutView.as_view(),name='logout'),
     path('',views.UserView.as_view(),name='user'),
+    path('address/',views.UserAddressUpdate.as_view(),name='address'),
     path('', include(router.urls)),
+    path('activate/<uid64>/<token>/', views.activate, name='activate'),
 ]

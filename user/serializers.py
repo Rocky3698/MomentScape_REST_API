@@ -4,12 +4,12 @@ from .models import UserAccount,UserAddress
 class UserSerializer(serializers.ModelSerializer):
     class Meta(object):
         model = UserAccount 
-        fields = ('user_id', 'first_name', 'last_name', 'username','followers', 'email', 'gender', 'phone', 'dp', 'address')
+        fields = ('id', 'first_name', 'last_name', 'username','followers', 'email', 'gender', 'phone', 'dp','bio','address')
 
 class UserAddressSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = UserAddress
-		fields = ('city', 'street_address', 'street_number', 'postal_code', 'country')
+		fields = ('id','city', 'street_address', 'street_number', 'postal_code', 'country')
 
 class UserRegisterSerializer(serializers.ModelSerializer):
 	address = UserAddressSerializer()
@@ -32,4 +32,4 @@ class UserSerializer(serializers.ModelSerializer):
 	address = UserAddressSerializer()
 	class Meta:
 		model = UserAccount
-		fields = ('username', 'email','first_name','last_name','gender', 'phone', 'dp', 'address')
+		fields = ('id','username', 'email','first_name','last_name','gender', 'phone', 'dp','bio', 'address')
