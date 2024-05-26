@@ -28,7 +28,7 @@ class UserRegisterView(APIView):
                 uid = urlsafe_base64_encode(force_bytes(user.pk))
                 current_site = get_current_site(request)
                 # Prepare and send email
-                confirmation_link = f"https://momentscapeapi.onrender.com/user/activate/{uid}/{token}/"  # Replace with your confirmation URL
+                confirmation_link = f"https://momentscape-rest-api.onrender.com/user/activate/{uid}/{token}/"  # Replace with your confirmation URL
                 email_subject = 'Confirm your email'
                 email_body = render_to_string('email.html', {'confirmation_link': confirmation_link})
 
