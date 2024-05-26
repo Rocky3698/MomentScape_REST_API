@@ -1,4 +1,3 @@
 MomentScape_APIs/.env
-db.sqlite3
 __pycache__/
 test.REST
