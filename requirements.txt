@@ -21,7 +21,6 @@ django-environ
 django-filter
 djangorestframework
 dj-database-url
-duplicity
 fasteners
 filelock
 future
@@ -33,7 +32,6 @@ incremental
 jeepney
 keyring
 lockfile
-librsync-dev
 markdown
 Mako
 MarkupSafe
