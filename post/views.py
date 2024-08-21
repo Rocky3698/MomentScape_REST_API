@@ -92,7 +92,7 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 
 class DeleteReactView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def delete(self, request, post_id, user_id):
@@ -102,7 +102,7 @@ class DeleteReactView(APIView):
 
 
 class UpdateReactView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def put(self, request, post_id, user_id):

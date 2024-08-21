@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import UserRegisterSerializer,UserLoginSerializer, UserSerializer,UserAddressSerializer
 from rest_framework import permissions, status
-from rest_framework.authentication import  TokenAuthentication
+from rest_framework.authentication import  TokenAuthentication,SessionAuthentication
 from rest_framework.permissions import IsAuthenticated,AllowAny
 from rest_framework.authtoken.models import Token
 from rest_framework import viewsets
@@ -86,7 +86,7 @@ class Author(viewsets.ReadOnlyModelViewSet):
         return queryset
 
 class UserView(APIView):
-    authentication_classes = [ TokenAuthentication]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
     def get(self, request):
         print(request.user)
@@ -101,7 +101,7 @@ class UserView(APIView):
             return Response({'user': serializer.data}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class UserAddressUpdate(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def patch(self, request):
@@ -118,7 +118,7 @@ class UserAddressUpdate(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class UserLogoutView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
     def get(self, request):
         request.user.auth_token.delete()
