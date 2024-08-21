@@ -27,12 +27,12 @@ SECRET_KEY = 'django-insecure-xnipnczor@14phk2k-^kg_e5pf#10_hxj9owy^8=ywu60*kj#4
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',  # Enables session
-        'rest_framework.authentication.TokenAuthentication',    # Enables token
-    ),
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.SessionAuthentication',  # Enables session
+#         'rest_framework.authentication.TokenAuthentication',    # Enables token
+#     ),
+# }
 ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_ALLOW_ALL = True
