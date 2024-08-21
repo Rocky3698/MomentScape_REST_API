@@ -3,7 +3,7 @@ from rest_framework.permissions import AllowAny
 from .models import Category, Post, Comment, React
 from .serializers import CategorySerializer, PostSerializer, CommentSerializer, ReactSerializer
 from django.db.models import Q
-from rest_framework.authentication import  TokenAuthentication
+from rest_framework.authentication import  TokenAuthentication,SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -11,7 +11,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
 class PostViewSet(viewsets.ModelViewSet):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
