@@ -33,6 +33,7 @@ incremental
 jeepney
 keyring
 lockfile
+librsync-dev
 markdown
 Mako
 MarkupSafe
